@@ -1,4 +1,5 @@
 import { fetchSingleProduct } from "@/lib/api";
+import Image from 'next/image';
 
 export default async function ProductDetails({ params }: { params: { id: string } }) {
   const product = await fetchSingleProduct(params.id);
@@ -6,7 +7,13 @@ export default async function ProductDetails({ params }: { params: { id: string 
   return (
     <div className="container mx-auto p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <img src={product.image} alt={product.title} className="w-full" />
+        <Image
+          src={product.image}
+          alt={product.title}
+          width={500} // Adjust width as needed
+          height={500} // Adjust height as needed
+          className="w-full object-cover"
+        />
         <div>
           <h1 className="text-2xl font-bold">{product.title}</h1>
           <p className="text-gray-600">{product.description}</p>
