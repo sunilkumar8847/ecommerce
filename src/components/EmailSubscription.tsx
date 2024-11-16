@@ -1,7 +1,6 @@
-// src/components/EmailSubscription.tsx
 export default function EmailSubscription() {
   return (
-    <div className="p-4 bg-gray-100">
+    <div className="p-4 bg-gray-100 my-8 flex flex-col gap-4">
       <div className="flex flex-col items-center gap-1">
         <h2 className="text-xl font-bold mb-2 text-gray-500">Subscribe to Our Newsletter</h2>
         <p className="text-sm text-gray-600 mb-4">

@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import OfferSlider from "@/components/OfferSlider";
 import RecentlyViewed from "@/components/RecentlyViewed";
 import PopularCategories from "@/components/PopularCategories";

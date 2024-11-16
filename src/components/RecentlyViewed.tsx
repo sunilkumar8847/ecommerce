@@ -1,9 +1,8 @@
-// src/components/RecentlyViewed.tsx
-
-'use client'; // Add this at the top of the file
+'use client';
 
 import { fetchLimitedProducts } from "@/lib/api";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function RecentlyViewed() {
   const [products, setProducts] = useState([]);
@@ -18,9 +17,11 @@ export default function RecentlyViewed() {
       <div className="grid grid-cols-5 gap-4">
         {products.map((product: any) => (
           <div key={product.id} className="p-4 bg-white shadow-md rounded-lg">
-            <img src={product.image} alt={product.title} className="w-full h-32 object-cover" />
-            <h3 className="text-sm mt-2">{product.title}</h3>
-            <p className="text-sm text-gray-600 mt-2">₹{product.price}</p>
+            <Link href={`/product/${product.id}`}>
+              <img src={product.image} alt={product.title} className="w-full h-32 object-cover" />
+              <h3 className="text-sm mt-2">{product.title}</h3>
+              <p className="text-sm text-gray-600 mt-2">₹{product.price}</p>
+            </Link>
           </div>
         ))}
       </div>

@@ -1,4 +1,4 @@
-"use client"; // Add this at the top of the file
+"use client";
 
 import React from "react";
 

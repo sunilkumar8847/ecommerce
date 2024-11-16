@@ -1,4 +1,3 @@
-// src/lib/api.ts
 const BASE_URL = 'https://fakestoreapi.com/products';
 
 export const fetchAllProducts = async () => {

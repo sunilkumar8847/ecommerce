@@ -1,5 +1,3 @@
-// src/app/layout.tsx
-import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 

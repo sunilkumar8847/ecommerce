@@ -1,6 +1,4 @@
-// src/components/PopularCategories.tsx
-
-'use client'; // Add this at the top of the file
+'use client';
 
 import { fetchCategories } from "@/lib/api";
 import { useEffect, useState } from "react";
