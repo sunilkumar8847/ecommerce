@@ -20,7 +20,7 @@ export default async function ProductDetails({ params }: { params: { id: string 
         <div>
           <h1 className="text-2xl font-bold">{product.title}</h1>
           <p className="text-gray-600 mt-2">{product.description}</p>
-          <p className="text-lg font-semibold mt-2">Price: ${product.price}</p>
+          <p className="text-lg font-semibold mt-2">Price: ₹{product.price*8}</p>
           <p className="text-sm text-blue-600 mt-4">Category: {product.category}</p>
           <div className="flex space-x-4 mt-6">
             <button className="bg-blue-500 text-white px-4 py-2 rounded">Add to Cart</button>

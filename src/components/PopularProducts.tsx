@@ -1,15 +1,24 @@
 'use client';
+
 import { fetchLimitedProducts } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Link from "next/link";
+import Image from "next/image";
+
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+}
 
 export default function PopularProducts() {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]); // Updated state type
   const [startIndex, setStartIndex] = useState(0);
 
   useEffect(() => {
-    fetchLimitedProducts(15).then(setProducts); 
+    fetchLimitedProducts(15).then(setProducts);
   }, []);
 
   const handlePrev = () => {
@@ -30,13 +39,15 @@ export default function PopularProducts() {
           {products.slice(startIndex, startIndex + 5).map((product) => (
             <div key={product.id} className="border p-4 rounded-md shadow-md w-1/5">
               <Link href={`/product/${product.id}`}>
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-40 object-contain mb-2"
+                <Image 
+                  src={product.image} 
+                  alt={product.title} 
+                  width={300} // Set appropriate width
+                  height={300} // Set appropriate height
+                  className="w-full h-40 object-contain mb-2" 
                 />
                 <h3 className="text-sm font-medium">{product.title}</h3>
-                <p className="text-gray-600 mt-2">₹{product.price}</p>
+                <p className="text-gray-600 mt-2">₹{product.price*8}</p>
               </Link>
             </div>
           ))}
