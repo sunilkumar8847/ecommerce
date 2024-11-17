@@ -2,8 +2,7 @@ import { fetchSingleProduct } from "@/lib/api";
 import Image from "next/image";
 
 export default async function ProductDetails({ params }: { params: { id: string } }) {
-
-  const { id } = await params;
+  const { id } = params; // Fixed: No need to await `params`
 
   const product = await fetchSingleProduct(id);
 
@@ -17,11 +16,11 @@ export default async function ProductDetails({ params }: { params: { id: string 
           height={500}
           className="w-full object-cover"
         />
-        <div>
+        <div className="ml-4 mt-2">
           <h1 className="text-2xl font-bold">{product.title}</h1>
           <p className="text-gray-600 mt-2">{product.description}</p>
-          <p className="text-lg font-semibold mt-2">Price: ₹{product.price*8}</p>
-          <p className="text-sm text-blue-600 mt-4">Category: {product.category}</p>
+          <p className="text-lg font-semibold mt-2">Price: ₹{product.price * 8}</p>
+          <p className="text-sm text-orange-500 font-bold mt-4">Category: {product.category}</p>
           <div className="flex space-x-4 mt-6">
             <button className="bg-blue-500 text-white px-4 py-2 rounded">Add to Cart</button>
             <button className="bg-green-500 text-white px-4 py-2 rounded">Buy Now</button>
