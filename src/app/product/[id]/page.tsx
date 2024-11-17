@@ -1,30 +1,41 @@
 import { fetchSingleProduct } from "@/lib/api";
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 
-// Remove async here, just use params directly
+// Define the type for the product data
+interface Product {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  image: string;
+}
+
+// Define the component
 export default function ProductDetails({
   params,
 }: {
   params: { id: string };
 }) {
-  const { id } = params;  // Destructure params directly
+  const { id } = params;
 
-  // Fetch the product details (this part is async, so this function remains async)
+  // Set state with appropriate types
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch product details function
   const fetchProductDetails = async () => {
     try {
-      const product = await fetchSingleProduct(id);  // Fetch product based on id
-      return product;
+      const productData = await fetchSingleProduct(id);  // Fetch the product based on id
+      return productData;
     } catch (error) {
       return { error: true, message: (error as Error).message };
     }
   };
 
-  // Call the async function to fetch product details
-  const [product, setProduct] = React.useState<any>(null);
-  const [loading, setLoading] = React.useState<boolean>(true);
-  const [error, setError] = React.useState<string | null>(null);
-
-  React.useEffect(() => {
+  useEffect(() => {
     const getProduct = async () => {
       const result = await fetchProductDetails();
       if (result.error) {
@@ -36,7 +47,7 @@ export default function ProductDetails({
     };
     
     getProduct();
-  }, [id]);
+  }, [id]); // Dependency array now correctly includes 'id'
 
   if (loading) {
     return <div>Loading...</div>;
