@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FiHeart, FiShoppingCart } from "react-icons/fi";
 import { FaGift } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
@@ -9,11 +10,11 @@ const Navbar = () => {
     <nav className="sticky top-0 bg-white shadow-md z-50">
       <div className="container mx-auto flex justify-around items-center p-4">
         <div className="text-2xl font-bold text-orange-500 cursor-pointer">
-          <a href="/">Sunil</a>
+          <Link href="/">Sunil</Link>
         </div>
         <div className="text-gray-500 font-bold flex cursor-pointer hover:bg-gray-300 transition duration-300 p-2 rounded-full">
           <CiLineHeight className="pt-1 text-lg " />
-          <a href="/" >Categories</a>
+          <Link href="/categories">Categories</Link>
         </div>
         <div className="flex w-96">
           <input
@@ -26,7 +27,7 @@ const Navbar = () => {
           </button>
         </div>
         <div>
-          <a href="/" className="text-gray-600 font-bold rounded-full hover:bg-gray-300 transition duration-300 p-2">Signin</a>
+          <Link href="/signin" className="text-gray-600 font-bold rounded-full hover:bg-gray-300 transition duration-300 p-2">Signin</Link> {/* Replace <a> with <Link> */}
         </div>
         <div className="flex space-x-6 items-center ">
           <div className="rounded-full hover:bg-blue-300 transition duration-300 p-2">
