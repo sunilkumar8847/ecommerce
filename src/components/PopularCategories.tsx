@@ -2,7 +2,6 @@
 
 import { fetchCategories } from "@/lib/api";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 export default function PopularCategories() {
   const [categories, setCategories] = useState<string[]>([]);
