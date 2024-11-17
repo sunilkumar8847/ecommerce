@@ -36,7 +36,7 @@ const ProductPage = () => {
       <h1>{product.name}</h1>
       <Image src={product.imageUrl} alt={product.name} width={500} height={500} />
       <p>{product.description}</p>
-      <p>${product.price}</p>
+      <p>₹{product.price}</p>
     </div>
   );
 };

@@ -36,17 +36,6 @@ export default function RecentlyViewed() {
               <h3 className="text-sm mt-2">{product.title}</h3>
               <p className="text-sm text-gray-600 mt-2">₹{product.price * 8}</p>
             </Link>
-            {/* <Link href={`/product/${product.id}`}>
-              <Image
-                src={product.image}
-                alt={product.title}
-                width={300}
-                height={300}
-                className="w-full h-40 object-contain mb-2"
-              />
-              <h3 className="text-sm font-medium">{product.title}</h3>
-              <p className="text-gray-600 mt-2">₹{product.price * 8}</p>
-            </Link> */}
           </div>
         ))}
       </div>
