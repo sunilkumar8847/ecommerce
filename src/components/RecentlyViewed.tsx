@@ -13,7 +13,7 @@ interface Product {
 }
 
 export default function RecentlyViewed() {
-  const [products, setProducts] = useState<Product[]>([]); // Updated state type
+  const [products, setProducts] = useState<Product[]>([]); // Use Product type
 
   useEffect(() => {
     fetchLimitedProducts(10).then(setProducts);
@@ -29,13 +29,24 @@ export default function RecentlyViewed() {
               <Image 
                 src={product.image} 
                 alt={product.title} 
-                width={300} // Set appropriate width
-                height={300} // Set appropriate height
-                className="w-full h-32 object-cover" 
+                width={300} 
+                height={300} 
+                className="w-full h-40 object-contain mb-2" 
               />
               <h3 className="text-sm mt-2">{product.title}</h3>
-              <p className="text-sm text-gray-600 mt-2">₹{product.price*8}</p>
+              <p className="text-sm text-gray-600 mt-2">₹{product.price * 8}</p>
             </Link>
+            {/* <Link href={`/product/${product.id}`}>
+              <Image
+                src={product.image}
+                alt={product.title}
+                width={300}
+                height={300}
+                className="w-full h-40 object-contain mb-2"
+              />
+              <h3 className="text-sm font-medium">{product.title}</h3>
+              <p className="text-gray-600 mt-2">₹{product.price * 8}</p>
+            </Link> */}
           </div>
         ))}
       </div>

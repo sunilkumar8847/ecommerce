@@ -2,7 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['fakestoreapi.com'],
+    domains: [
+      'fakestoreapi.com',
+      'as2.ftcdn.net',
+      'img.freepik.com',
+    ],
   },
 };
 
