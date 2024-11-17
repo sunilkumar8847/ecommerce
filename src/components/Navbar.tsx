@@ -23,12 +23,8 @@ const Navbar = () => {
             className="border border-black rounded-full h-12 p-2 w-full text-black"
           />
           <button className="absolute right-0 bg-orange-500 text-white rounded-r-full p-4 transform transition duration-300 ease-in-out hover:rounded-full hover:scale-110 group">
-            {/* <span className="absolute inset-0 w-full h-full bg-orange-700 transform scale-x-0 group-hover:scale-x-100 rounded-r-full transition-all duration-300 ease-out"></span> */}
             <FaSearch className="relative z-10" />
           </button>
-          {/* <button className="bg-orange-500 text-white rounded-r-full p-4 transform transition duration-300 ease-in-out hover:scale-105">
-            <FaSearch />
-          </button> */}
         </div>
         <div>
           <Link href="/signin" className="text-gray-600 font-bold rounded-full hover:bg-gray-300 transition duration-300 p-2">Signin</Link> {/* Replace <a> with <Link> */}

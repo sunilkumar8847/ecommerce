@@ -1,13 +1,11 @@
 import { fetchSingleProduct } from "@/lib/api";
 import Image from "next/image";
 
-// Mark the function as async to handle params correctly
 export default async function ProductDetails({
     params,
 }: {
     params: { id: string };
 }) {
-    // Fetch the product details
     let product;
     try {
         product = await fetchSingleProduct(params.id);

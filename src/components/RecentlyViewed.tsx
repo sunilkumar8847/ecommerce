@@ -13,7 +13,7 @@ interface Product {
 }
 
 export default function RecentlyViewed() {
-  const [products, setProducts] = useState<Product[]>([]); // Use Product type
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     fetchLimitedProducts(10).then(setProducts);

@@ -14,7 +14,7 @@ interface Product {
 }
 
 export default function PopularProducts() {
-  const [products, setProducts] = useState<Product[]>([]); // Use Product type
+  const [products, setProducts] = useState<Product[]>([]);
   const [startIndex, setStartIndex] = useState(0);
 
   useEffect(() => {
