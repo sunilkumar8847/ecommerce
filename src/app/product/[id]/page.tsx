@@ -1,13 +1,13 @@
-import { fetchSingleProduct } from "@/lib/api"; // Import the API function
+import { fetchSingleProduct } from "@/lib/api";
 import Image from "next/image";
 
-// Mark the function as async to handle data fetching
+// No need for async here, just destructure params directly
 export default async function ProductDetails({
   params,
 }: {
   params: { id: string };
 }) {
-  const { id } = params;  // Destructure the id from params directly (no need to await)
+  const { id } = params;  // Directly destructure params
 
   // Fetch the product details
   let product;
