@@ -1,23 +1,52 @@
 import { fetchSingleProduct } from "@/lib/api";
 import Image from "next/image";
 
-// No need for async here, just destructure params directly
-export default async function ProductDetails({
+// Remove async here, just use params directly
+export default function ProductDetails({
   params,
 }: {
   params: { id: string };
 }) {
-  const { id } = params;  // Directly destructure params
+  const { id } = params;  // Destructure params directly
 
-  // Fetch the product details
-  let product;
-  try {
-    product = await fetchSingleProduct(id);  // Fetch product based on the id
-  } catch (error) {
+  // Fetch the product details (this part is async, so this function remains async)
+  const fetchProductDetails = async () => {
+    try {
+      const product = await fetchSingleProduct(id);  // Fetch product based on id
+      return product;
+    } catch (error) {
+      return { error: true, message: (error as Error).message };
+    }
+  };
+
+  // Call the async function to fetch product details
+  const [product, setProduct] = React.useState<any>(null);
+  const [loading, setLoading] = React.useState<boolean>(true);
+  const [error, setError] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    const getProduct = async () => {
+      const result = await fetchProductDetails();
+      if (result.error) {
+        setError(result.message);
+      } else {
+        setProduct(result);
+      }
+      setLoading(false);
+    };
+    
+    getProduct();
+  }, [id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
     return (
       <div className="container mx-auto p-4">
         <h1 className="text-xl font-bold text-red-500">Error fetching product details</h1>
-        <p className="text-gray-600">{(error as Error).message}</p>
+        <p className="text-gray-600">{error}</p>
       </div>
     );
   }
