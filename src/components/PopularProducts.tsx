@@ -44,7 +44,7 @@ export default function PopularProducts() {
                   alt={product.title} 
                   width={300} 
                   height={300} 
-                  className="w-full h-40 object-contain mb-2" 
+                  className="w-full h-40 object-contain mb-2 transform transition duration-300 ease-in-out hover:scale-105" 
                 />
                 <h3 className="text-sm font-medium">{product.title}</h3>
                 <p className="text-gray-600 mt-2">₹{product.price * 8}</p>

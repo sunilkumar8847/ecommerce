@@ -2,6 +2,7 @@
 
 import { fetchCategories } from "@/lib/api";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function PopularCategories() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -19,9 +20,9 @@ export default function PopularCategories() {
         {categories.map((category, index) => (
           <div
             key={index}
-            className="w-40 h-40 bg-blue-100 flex items-center justify-center rounded-full shadow-md"
+            className="w-40 h-40 bg-orange-400 flex items-center justify-center rounded-full shadow-md"
           >
-            <p className="text-center capitalize text-sm font-semibold">{category}</p>
+            <p className="text-center capitalize text-md font-semibold text-gray-200">{category}</p>
           </div>
         ))}
       </div>
