@@ -11,11 +11,11 @@ export default function PopularCategories() {
   }, []);
 
   return (
-    <div className="container mx-auto my-8">
+    <div className="container mx-auto my12">
       <div className="flex justify-center">
         <h1 className="text-2xl font-bold mb-4 text-gray-500">Popular Categories</h1>
       </div>
-      <div className="flex justify-between space-x-4 mx-16 my-4">
+      <div className="flex justify-between space-x-4 mx-32 my-4">
         {categories.map((category, index) => (
           <div
             key={index}

@@ -10,15 +10,8 @@ export default function Footer() {
           <h5>Get Connected To Your Social Networks</h5>
         </div>
         
-        <div className="flex justify-center items-center gap-16">
-          <div className="mb-16"> 
-            <h3 className="font-bold my-4">Company</h3>
-            <hr className="mb-4"/>
-            <div>
-              <p>Sunil Company is one of the best</p>
-              <p> leading companies out there</p>
-            </div>
-          </div>
+        <div className="flex justify-center items-center gap-32">
+          
           <div className="mb-8"> 
             <h3 className="font-bold my-4">Products</h3>
             <hr className="mb-4"/>
