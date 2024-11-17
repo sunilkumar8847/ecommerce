@@ -1,10 +1,27 @@
 import { fetchSingleProduct } from "@/lib/api";
 import Image from "next/image";
 
-export default async function ProductDetails({ params }: { params: { id: string } }) {
-  const { id } = params; // Fixed: No need to await `params`
+// Mark the function as async to handle params correctly
+export default async function ProductDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
+  // Await params before destructuring it
+  const { id } = await params;
 
-  const product = await fetchSingleProduct(id);
+  // Fetch the product details
+  let product;
+  try {
+    product = await fetchSingleProduct(id);
+  } catch (error) {
+    return (
+      <div className="container mx-auto p-4">
+        <h1 className="text-xl font-bold text-red-500">Error fetching product details</h1>
+        <p className="text-gray-600">{(error as Error).message}</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto p-4">
@@ -12,9 +29,10 @@ export default async function ProductDetails({ params }: { params: { id: string 
         <Image
           src={product.image}
           alt={product.title}
-          width={500} 
+          width={500}
           height={500}
           className="w-full object-cover"
+          priority
         />
         <div className="ml-4 mt-2">
           <h1 className="text-2xl font-bold">{product.title}</h1>

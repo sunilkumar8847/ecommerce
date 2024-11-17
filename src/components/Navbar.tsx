@@ -8,10 +8,12 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 bg-white shadow-md z-50">
       <div className="container mx-auto flex justify-around items-center p-4">
-        <div className="text-2xl font-bold text-orange-500 cursor-pointer">Sunil</div>
+        <div className="text-2xl font-bold text-orange-500 cursor-pointer">
+          <a href="/">Sunil</a>
+        </div>
         <div className="text-gray-500 font-bold flex cursor-pointer hover:bg-gray-300 transition duration-300 p-2 rounded-full">
           <CiLineHeight className="pt-1 text-lg " />
-          <a href="#" >Categories</a>
+          <a href="/" >Categories</a>
         </div>
         <div className="flex w-96">
           <input
@@ -24,7 +26,7 @@ const Navbar = () => {
           </button>
         </div>
         <div>
-          <a href="#" className="text-gray-600 font-bold rounded-full hover:bg-gray-300 transition duration-300 p-2">Signin</a>
+          <a href="/" className="text-gray-600 font-bold rounded-full hover:bg-gray-300 transition duration-300 p-2">Signin</a>
         </div>
         <div className="flex space-x-6 items-center ">
           <div className="rounded-full hover:bg-blue-300 transition duration-300 p-2">
